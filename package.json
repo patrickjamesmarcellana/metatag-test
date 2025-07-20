@@ -5,10 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build", 
-    "build:ssr": "vite build --ssr", 
-    "start": "node dist/server/index.js",
-    "lint": "eslint .",
+    "build": "vite build",                     
+    "build:ssr": "vite build --ssr",           
+    "start": "node dist/server/index.js",      
     "preview": "vite preview"
   },
   "dependencies": {
