@@ -11,7 +11,7 @@ export default defineConfig(({ command, ssrBuild }) => {
       ssr: ssrBuild ? 'server/entry-server.jsx' : false,
     },
     ssr: {
-      noExternal: ['react-helmet'], // ensure proper hydration
+      noExternal: ['react-helmet', 'react-router-dom'], // ensure proper hydration
     },
     resolve: {
       alias: {
