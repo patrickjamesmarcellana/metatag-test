@@ -31,7 +31,7 @@ export default function Post() {
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
         <meta property="og:image" content={meta.image} />
-        <meta property="og:url" content={`https://metatagtest.onrender.com/post/${slug}`} />
+        <meta property="og:url" content={`https://metatag-test.onrender.com/post/${slug}`} />
         <meta property="og:type" content="article" />
 
         <meta name="twitter:card" content="summary_large_image" />
