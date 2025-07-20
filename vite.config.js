@@ -3,28 +3,17 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig(({ command, ssrBuild }) => {
-  if (ssrBuild) {
-    // SSR build config
-    return {
-      plugins: [react()],
-      build: {
-        ssr: true,
-        outDir: 'dist/server',
-        rollupOptions: {
-          input: './server/entry-server.jsx',
-        },
-      },
-      ssr: {
-        noExternal: ['react-helmet-async'],
-      },
-    }
-  } else {
-    // Client build config
-    return {
-      plugins: [react()],
-      build: {
-        outDir: 'dist/client', // prevent overwriting SSR
-      },
-    }
+  return {
+    plugins: [react()],
+    build: {
+      outDir: ssrBuild ? 'dist/server' : 'dist/client',
+      ssr: ssrBuild ? './server/entry-server.jsx' : false,
+      rollupOptions: ssrBuild
+        ? { input: './server/entry-server.jsx' }
+        : undefined,
+    },
+    ssr: {
+      noExternal: ['react-helmet'], // important for SSR
+    },
   }
 })
